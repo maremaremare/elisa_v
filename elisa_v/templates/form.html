@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block content %}
+{{form.errors}}
+														<form novalidate="novalidate" method="post" action="/contact_form/" class="cf row contact-form animated delay15 fadeInUp">{% csrf_token %}
+															<input required="" name="pt_contact_name" placeholder="Ваше имя (*)" class="input-block-level required pt_contact_name" type="text">
+															<input required="" name="pt_contact_email" placeholder="Ваш e-mail (*)" class="input-block-level required email pt_contact_email" type="email"> 
+															<input required="" name="pt_contact_subject" placeholder="Тема (*)" class="input-block-level required pt_contact_subject" type="text"> 
+															<textarea required="" rows="3" name="pt_contact_message" placeholder="Сообщение (*)" class="input-block-level required pt_contact_message"></textarea>
+															<button>— Submit</button>
+														</form>
+
+
+
+
+{% endblock %}

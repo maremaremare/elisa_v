@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" ><!--<![endif]-->
+{% load staticfiles %}
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Консалтинговая компания "Eliza V"</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Just+Another+Hand">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abril+Fatface">
+		<link rel="stylesheet" href="/static/css/style.css">
+		<link rel="stylesheet" href="/static/css/mediaqueries.css">
+		<script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+
+	<body>
+		
+
+		<div id="mask-shape" class="unloaded">
+			<div id="loader"></div>
+		</div>
+
+		<!-- Begin Header -->
+		<div class="container">
+			<div class="row">
+
+					<!-- Begin Section Social -->
+				<div class="social hidden-phone span12">
+					<div class="twitterfeed pull-right visible-desktop">
+						<div class="row">
+							<div class="twitter-feed-icon span1"></div>
+							<div class="twitter-feed span3"> Контактный телефон: <br>(495) 000-00-00</div>
+						</div>
+					</div>
+
+					<div class="social-icons span8 pull-right">
+						<!-- Social Profiles. -->
+						<ul class="social-profiles pull-right text-right unstyled inline">
+
+
+							<li class="sep animated fast delay06 fadeInDown"></li>
+
+
+							
+		                    <li class="skype"><a href="http://www.skype.com/" target="_blank"></a></li>
+		                    <li ><a class=" hi-icon-phone" style="font-family: entypo; font-size:24px; line-height: 100%"href="https://twitter.com/" target="_blank"></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<header class="span4 nav-wrapper">
+					<div class="row">
+						<figure class="offset1 span2">
+							<a class="index" href="/">
+								<img class="noretina" src="/static/img/logo.svg" alt="Консалтинговая компания Elisa V" title="Консалтинговая компания Elisa V">
+								<img class="retina" src="/static/img/logo@2x.svg" alt="Консалтинговая компания Elisa V" title="Консалтинговая компания Elisa V">
+							</a>
+						</figure>
+
+						</div>
+						<div class="row">
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">меню</a>
+							<!-- Begin Navigation -->
+
+							<nav class="offset1 span2 nav-collapse collapse" id="navigation">
+
+
+								<ul class="nav">
+								{% load mptt_tags %}
+							    {% recursetree nodes %}
+							        <li class="menu-item">
+							            <a href="{{node.get_absolute_url}}" class="dropdown-toggle">{{ node.menu_name }}</a>
+							            {% if not node.is_leaf_node %}
+							                <ul class="children">
+							                    {{ children }}
+							                </ul>
+							            {% endif %}
+							        </li>
+							    {% endrecursetree %}
+							</ul>
+							</nav>
+							<!-- End Navigation -->
+						</div>
+						<div class="subnav-layer"></div>
+					</header>
+					<div class="span8 offset4 wrapper">
+						
+						<section id="welcome-1" class="main show">
+							<h1 class="h1 ">{{object.title}}{{title}}</h1>
+
+							<div class="row-fluid">
+								<div class="offset2 span10 wrapper">
+									<h2 class=" h2">{{object.subtitle}}</h2>
+								</div>
+							</div>
+
+							<div class="content">
+								<div class="row-fluid">
+
+								{% block content %}
+								{% endblock %}
+							</div>
+
+						</section>
+
+					</div>
+				</div>
+			</div>
+
+			<footer>
+
+					<div class="row">
+						<div class="copyright offset1 span3">
+							
+							<p class="opcty06">© 2013<br>PIXELTHRONE</p>
+
+						</div>
+					</div>
+
+				</div>
+			</footer>
+
+
+			<div id="fb-root"></div>
+
+			<!-- Javascript -->
+			<script>
+
+				Modernizr.load([
+					{ load : 'http://connect.facebook.net/en_US/all.js#xfbml=1' },
+					{ load : 'http://platform.twitter.com/widgets.js' }
+				]);
+
+				/* Config Vars*/
+
+				var config = {
+					"base_color" : "#ffffff",
+					"contact_form_submit" : "contact-form.php",
+					"newsletter_form_submit" : "newsletter-form.php",
+					"pt_twitter_username" : "pixelthrone",
+					"pt_twitter_count" : "3",
+					"pt_twitter_path" : "\/libs\/twitter\/",
+					"portfolio_items_page" : "",
+					"blog_items_page" : "",
+					"google_maps_circle_color" : "#000000",
+					"google_maps_landscape_color" : "#cccccc",
+					"google_maps_water_color" : "#aaaaaa",
+					"google_maps_zoom" : "4",
+					"pt_google_maps_latitude_1" : 39.810745,
+					"pt_google_maps_longitude_1" : -7.512589,
+					"pt_google_maps_title_popover_1" : "",
+					"pt_google_maps_text_popover_1" : "",
+					"pt_google_maps_latitude_2" : "",
+					"pt_google_maps_longitude_2" : "",
+					"pt_google_maps_title_popover_2" : "",
+					"pt_google_maps_text_popover_2" : "",
+					"pt_google_maps_latitude_3" : "",
+					"pt_google_maps_longitude_3" : "",
+					"pt_google_maps_title_popover_3" : "",
+					"pt_google_maps_text_popover_3" : "",
+					"pt_google_maps_latitude_4" : "",
+					"pt_google_maps_longitude_4" : "",
+					"pt_google_maps_title_popover_4" : "",
+					"pt_google_maps_text_popover_4" : ""
+				};
+
+				/* Images for Background Slideshow */
+				var pt_supersized_slides = [
+					{"image" : "/static/img/background/3.jpg"},
+					{"image" : "/static/img/background/1.jpg"},
+					{"image" : "/static/img/background/4.jpg"}
+				];
+
+			</script>
+
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        	<script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+			<script src="/static/js/vendor/retina-2x/retina.js"></script>
+			<script src="/static/js/plugins.js"></script>
+			<script src="/static/js/main.js"></script>
+
+	</body>
+</html>
